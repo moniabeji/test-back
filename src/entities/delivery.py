@@ -11,8 +11,8 @@ class Delivery(Entity, Base):
 
     '''
     __tablename__ = 'delivery'
-    name = Column(String, nullable=False)
-    mission = relationship("Mission", back_populates="delivery")
+    name = Column(String, nullable=False, unique=True)
+    missions= relationship("Mission", back_populates="delivery")
     def __init__(self, id, name):
         self.id = id
         self.name = name
@@ -23,3 +23,4 @@ class DeliverySchema(Schema):
     '''
     id = fields.Number()
     name = fields.Str()
+

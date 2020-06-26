@@ -10,8 +10,8 @@ class Address(Entity, Base):
 
     '''
     __tablename__ = 'address'
-    name = Column(String, nullable=False)
-    mission = relationship("Mission", back_populates="address")
+    name = Column(String, nullable=False, unique=True)
+    missions = relationship("Mission", back_populates="address")
     def __init__(self, id, name):
         self.id = id
         self.name = name

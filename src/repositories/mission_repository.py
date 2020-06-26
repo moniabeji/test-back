@@ -26,7 +26,7 @@ def get_missions_after(session):
     return num_missions
 
 def create_mission(session, mission):
-    delivery = Delivery(mission["delivery"]["name"], mission["delivery"]["name"])
+    delivery = Delivery(mission["delivery"]["id"], mission["delivery"]["name"])
     moto = Moto(mission["moto"]["id"], mission["moto"]["name"])
     address = Address(mission["address"]["id"], mission["address"]["name"])
     mission = Mission(mission["creationDate"], address, delivery, moto)

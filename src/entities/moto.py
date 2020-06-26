@@ -11,8 +11,8 @@ class Moto(Entity, Base):
 
     '''
     __tablename__ = 'moto'
-    name = Column(String, nullable=False)
-    mission = relationship("Mission", back_populates="moto")
+    name = Column(String, nullable=False, unique=True)
+    missions = relationship("Mission", back_populates="moto")
     def __init__(self, id, name):
         self.id = id
         self.name = name

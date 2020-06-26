@@ -15,19 +15,18 @@ class Mission(Entity, Base):
     address_id = Column(Integer, ForeignKey('address.id'), nullable=False)
     delivery_id = Column(Integer, ForeignKey('delivery.id'), nullable=False)
     moto_id = Column(Integer, ForeignKey('moto.id'), nullable=False)
-    address = relationship("Address", back_populates="mission")
-    delivery = relationship("Delivery", back_populates="mission")
-    moto = relationship("Moto", back_populates="mission")
+    address = relationship("Address", back_populates="missions")
+    delivery = relationship("Delivery", back_populates="missions")
+    moto = relationship("Moto", back_populates="missions")
 
     def __init__(self,  creationDate, address, delivery, moto):
         self.creationDate = creationDate
         self.address = address
         self.delivery = delivery
         self.moto = moto
-print("yes")
+
 class MissionSchema(Schema):
     id = fields.Number()
-    name = fields.Str()
     creationDate = fields.DateTime('%Y-%m-%d')
     address = fields.Nested(AddressSchema)
     delivery = fields.Nested(DeliverySchema)
