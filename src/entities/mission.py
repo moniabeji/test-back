@@ -19,11 +19,11 @@ class Mission(Entity, Base):
     delivery = relationship("Delivery", back_populates="missions")
     moto = relationship("Moto", back_populates="missions")
 
-    def __init__(self,  creationDate, address, delivery, moto):
+    def __init__(self,  creationDate, delivery_id, moto_id, address_id ):
         self.creationDate = creationDate
-        self.address = address
-        self.delivery = delivery
-        self.moto = moto
+        self.delivery_id = delivery_id
+        self.moto_id = moto_id
+        self.address_id = address_id
 
 class MissionSchema(Schema):
     id = fields.Number()
