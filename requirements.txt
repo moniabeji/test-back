@@ -1,5 +1,5 @@
 marshmallow==2.19.5
-Jinja2==2.10.1
+Jinja2==2.11.3
 SQLAlchemy==1.3.4
 Flask-SQLAlchemy==2.4.0
 Flask==1.0.3
